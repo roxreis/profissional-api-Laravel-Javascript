@@ -14,7 +14,7 @@ class CreateTecnologias extends Migration
     public function up()
     {
         Schema::create('tecnologias', function (Blueprint $table) {
-            $table->bigIncrements('tec_id');
+            $table->bigIncrements('id');
             $table->string('nome');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ class CreateProfissionais extends Migration
     public function up()
     {
         Schema::create('profissionais', function (Blueprint $table) {
-            $table->bigIncrements('prof_id');
+            $table->bigIncrements('id');
             $table->string('nome');
             $table->string('github');
             $table->timestamps();
