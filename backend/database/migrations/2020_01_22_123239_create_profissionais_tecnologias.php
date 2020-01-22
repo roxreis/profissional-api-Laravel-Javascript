@@ -16,9 +16,9 @@ class CreateProfissionaisTecnologias extends Migration
         Schema::create('profissionais_tecnologias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('profissionais_id');
-            $table->foreign('profissionais_id')->references('id')->on('profissionais');
+            $table->foreign('profissionais_id')->references('prof_id')->on('profissionais');
             $table->unsignedBigInteger('tecnologias_id');
-            $table->foreign('tecnologias_id')->references('id')->on('tecnologias');
+            $table->foreign('tecnologias_id')->references('tec_id')->on('tecnologias');
             $table->timestamps();
         });
     }
