@@ -10,9 +10,16 @@
     <form id="form">
         <input type="text" name="nome" id="nome">
         <input type="text" name="github" id="github">
+        <select>
+            <option id="id_tecnologia" nome="tecnologia" value="hp">1</option>
+            <option id="id_tecnologia" nome="tecnologia" value="react">2</option>
+            <option id="id_tecnologia" nome="tecnologia" value="php">3</option>
+            <option id="id_tecnologia" nome="tecnologia" value="angular">4</option>
+        </select>
         <button type="submit">enviar</button>
     </form>
 
+   
     <script>
         let form = document.getElementById('form');
         
@@ -20,17 +27,26 @@
             event.preventDefault();
             let nomeProfissional = document.getElementById('nome').value;
             let githubProfissional = document.getElementById('github').value;
+            let idTecnologia = document.getElementById('id_tecnologia').value;
             let config = {
+                headers:{
+                    "Content-Type":"application/json"
+                    },               
                 method:'POST',
-                body:JSON.stringify({nome:nomeProfissional, github:githubProfissional})
+                body:JSON.stringify({nome:nomeProfissional, github:githubProfissional, id_tecnologia:idTecnologia})
         }
-        fetch('http://localhost:8000/api/profissioinais', config)
+        fetch('http://localhost:8000/api/profissionais', config)
         .then(function(resposta){
             return resposta.json();
         })
         .then(function(json){
             console.log(json);
+        }).catch(function(error){
+            console.log(error)
         })
+
+
+
         }
 
     </script>
